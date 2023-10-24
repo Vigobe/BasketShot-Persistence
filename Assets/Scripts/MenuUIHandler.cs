@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class MenuUIHandler : MonoBehaviour
 {
     private string namePlayer;
+
     public void ReadName(string name)
     {
         namePlayer = name;
@@ -25,5 +26,9 @@ public class MenuUIHandler : MonoBehaviour
         #else
             Application.Quit(); // original code to quit Unity player
         #endif
+    }
+    public void NewNameSelected(string name)
+    {
+        MainManager.Instance.TeamName = namePlayer;
     }
 }
