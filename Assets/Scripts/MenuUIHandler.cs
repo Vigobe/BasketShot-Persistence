@@ -3,20 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 
 public class MenuUIHandler : MonoBehaviour
 {
-    private string namePlayer;
+    public InputField inputText;
+    public Text textName;
 
-    public void ReadName(string name)
-    {
-        namePlayer = name;
-        Debug.Log(namePlayer);
-    }
+    
     public void StartNew()
     {
+        //PlayerPrefs.SetString("nombre", inputText.text);
         SceneManager.LoadScene(1);
     }
     public void Exit()
@@ -27,8 +26,5 @@ public class MenuUIHandler : MonoBehaviour
             Application.Quit(); // original code to quit Unity player
         #endif
     }
-    public void NewNameSelected(string name)
-    {
-        MainManager.Instance.TeamName = namePlayer;
-    }
+   
 }
