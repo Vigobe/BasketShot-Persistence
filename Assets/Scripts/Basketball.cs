@@ -15,16 +15,20 @@ public class Basketball : MonoBehaviour
 	float time;
 	public TextMeshProUGUI scoreText;
 	public TextMeshProUGUI timeText;
+	public TextMeshProUGUI bestScore;
 	
 	Transform spawnpoint;
-	
+
 	void Start()
 	{
-		Time.timeScale = 1.0f;
+		//bestScore = "Best Score" + MenuUIHandler.inputText.textName + score;
+
+        Time.timeScale = 1.0f;
 		score = 0;
 		time = 60f;
 		scoreText.text = "Score: " + score;
 		timeText.text = "Time left: " + time;
+
 	
 		spawnpoint = GameObject.Find("spawnpoint").transform;
 		gameOver = false;
