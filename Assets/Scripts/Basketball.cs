@@ -2,32 +2,32 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
 
 public class Basketball : MonoBehaviour
 {
 	public GameObject ball;
-	public static bool gameOver;
+	public static bool gameOver = false;
 		
 	GameObject Score;
-	GameObject timeObject;
+	//GameObject timeObject;
 	
 	public static int score;
 	float time;
-	public TextMeshProUGUI scoreText;
-	public TextMeshProUGUI timeText;
-	public TextMeshProUGUI bestScore;
-	
+	public Text scoreText;
+	public Text timeText;
+	private int b_Score;
+		
 	Transform spawnpoint;
 
 	void Start()
 	{
-		//bestScore = "Best Score" + MenuUIHandler.inputText.textName + score;
-
-        Time.timeScale = 1.0f;
+		Time.timeScale = 1.0f;
 		score = 0;
 		time = 60f;
 		scoreText.text = "Score: " + score;
 		timeText.text = "Time left: " + time;
+		
 
 	
 		spawnpoint = GameObject.Find("spawnpoint").transform;
@@ -48,6 +48,10 @@ public class Basketball : MonoBehaviour
 		if(time <= 0)
 		{
 			gameOver = true;
+			if (score > b_Score)  
+			{
+				b_Score = score;
+			}
 		}
 	}
 	//instantiate new basketball at the spawnposition
